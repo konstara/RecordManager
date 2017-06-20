@@ -487,6 +487,12 @@ class NdlLidoRecord extends LidoRecord
                 $subjectDescriptions[] = (string)$set->displaySubject;
             }
         }
+        if ($subjectDescriptions
+            && $this->getTitle() == implode('; ', $subjectDescriptions)
+        ) {
+            // We have the description already in the title, don't repeat
+            $subjectDescriptions = [];
+        }
         return trim(
             implode(
                 ' ', array_merge($descriptionWrapDescriptions, $subjectDescriptions)
