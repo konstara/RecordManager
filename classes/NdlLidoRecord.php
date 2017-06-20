@@ -481,7 +481,7 @@ class NdlLidoRecord extends LidoRecord
         foreach ($this->getSubjectSetNodes() as $set) {
             if (mb_strtolower($set->displaySubject['label'], 'UTF-8') == 'aihe') {
                 $subjectDescriptions[] = (string)$set->displaySubject;
-            } elseif (mb_strtolower($set->displaySubject['label'], 'UTF-8') == null
+            } elseif ($set->displaySubject['label'] == null
                 && !empty($set->displaySubject)
             ) {
                 $subjectDescriptions[] = (string)$set->displaySubject;
